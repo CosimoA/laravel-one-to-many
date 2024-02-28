@@ -3,6 +3,9 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TypeController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/projects', [ProjectController :: class, 'index'])
+    -> name('project.index');
+
+Route::get('/types', [TypeController :: class, 'index'])
+    -> name('type.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
